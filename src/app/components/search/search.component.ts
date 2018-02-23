@@ -20,9 +20,7 @@ export class SearchComponent {
     }
 
     this._spotify.getArtistas(this.termino)
-      .subscribe(artistas => {
-        console.log(artistas);
-      });
+      .subscribe();
   }
 
 }

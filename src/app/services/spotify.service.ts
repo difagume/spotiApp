@@ -9,16 +9,36 @@ import 'rxjs/add/operator/map';
 export class SpotifyService {
 
   artistas: any[] = [];
+  urlSpotify: string = 'https://api.spotify.com/v1/';
+  token: string = 'BQDlunhzG6Jt4RL9JgfloJU7zkqYYJHiTPTkO4mNCQrEaL5FMsVh42ZKKeaB2OnT_XTEK5TWWDBtaywy4gw';
 
   constructor(public http: HttpClient) {
     console.log('Servicio de spotify listo');
   }
 
-  getArtistas(termino: string) {
-    let url = `https://api.spotify.com/v1/search?query=${ termino }&type=artist&limit=20`;
+  private getHeaders(): HttpHeaders {
     let headers = new HttpHeaders({
-      'authorization': 'Bearer BQDkzV5jvmK7pBgHEVJDPeeISJXqYCQd-ahGy9j9I53H89IMR3jFFpnvRyFFmzJOdqdeG2V96_QRo09tlNs'
+      'authorization': `Bearer ${this.token}`
     });
+    return headers;
+  }
+
+  getArtista(id: string) {
+    let url = `${this.urlSpotify}artists/${id}`;
+
+    let headers = this.getHeaders();
+    // Observador
+    return this.http.get(url, { headers });
+      // .map((respuesta: any) => {
+      //   this.artistas = respuesta.artists.items;
+      //   return this.artistas;
+      // });
+  }
+
+  getArtistas(termino: string) {
+    let url = `${this.urlSpotify}search?query=${termino}&type=artist&limit=20`;
+
+    let headers = this.getHeaders();
     // Observador
     return this.http.get(url, { headers })
       .map((respuesta: any) => {
