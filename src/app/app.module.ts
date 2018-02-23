@@ -18,6 +18,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SinfotoPipe } from './pipies/sinfoto.pipe';
+import { ArtistComponent } from './components/artist/artist.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SinfotoPipe } from './pipies/sinfoto.pipe';
     HomeComponent,
     SearchComponent,
     NavbarComponent,
-    SinfotoPipe
+    SinfotoPipe,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
