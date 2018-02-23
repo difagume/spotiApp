@@ -5,7 +5,10 @@ import { NgModule } from '@angular/core';
 import { app_routing } from './app.routes';
 
 //Para usar los servicios del HttpClient
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+
+//Para usar ngModel en los html
+import { FormsModule } from '@angular/forms';
 
 //Servicios
 import { SpotifyService } from './services/spotify.service';
@@ -26,7 +29,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
   imports: [
     BrowserModule,
     app_routing,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [SpotifyService],
   bootstrap: [AppComponent]

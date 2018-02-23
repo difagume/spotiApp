@@ -14,10 +14,10 @@ export class SpotifyService {
     console.log("Servicio de spotify listo");
   }
 
-  getArtistas() {
-    let url = "https://api.spotify.com/v1/search?query=metallica&type=artist&limit=20";
+  getArtistas(termino: string) {
+    let url = `https://api.spotify.com/v1/search?query=${ termino }&type=artist&limit=20`;
     let headers = new HttpHeaders({
-      'authorization': 'Bearer BQA8dyK-Fxl7Xfz-S7NkZSwHlUJRw0v_W1x3lZ19au4udu3gj-Kea_dsqwyg9bVpZXZdCcXQ7TlAW8VxzuQ'
+      'authorization': 'Bearer BQA9zWgvmYNCqqJOxjdxf7bm5U0adPcHLeOXdGVvmMF-VR30APT4RYPsRDwAKgHNDS_cNnD0oqK3OJFfxwg'
     });
     //Observador
     return this.http.get(url, { headers })
