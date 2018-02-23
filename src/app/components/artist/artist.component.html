@@ -25,40 +25,41 @@
 
     </div>
 
-    <!-- <h2>Top Tracks</h2> -->
+  </div>
+  <!-- <h2>Top Tracks</h2> -->
 
-    <div class="row top30">
-      <div class="col-md-12">
-        <table class="table table-dark">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Foto</th>
-              <th>Nombre</th>
-              <th>Popularidad</th>
-              <th>Escuchar</th>
-            </tr>
-          </thead>
+  <div class="row top30">
+    <div class="col-md-12">
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Popularidad</th>
+            <th>Escuchar</th>
+          </tr>
+        </thead>
 
-          <tbody>
-            <tr *ngFor="let pista of topTracks; let i = index">
-              <td>{{ i +1 }}</td>
-              <td>
-                <img [src]="pista.album.images | sinfoto" alt="64x64" class="mr-2 rounded" style="width: 64px; height: 64px;" data-holder-rendered="true">
-              </td>
-              <td>{{ pista.name }}</td>
-              <td>{{ pista.popularity }}%</td>
-              <td>
-                <audio controls>
-                <source [src]="pista.preview_url">
-                  Tu navegador es viejo
-                </audio>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
+        <tbody>
+          <tr *ngFor="let pista of topTracks; let i = index">
+            <td>{{ i +1 }}</td>
+            <td>
+              <img [src]="pista.album.images | sinfoto" alt="64x64" class="mr-2 rounded" style="width: 64px; height: 64px;" data-holder-rendered="true">
+            </td>
+            <td>{{ pista.name }}</td>
+            <td>{{ pista.popularity }}%</td>
+            <td>
+              <iframe [src]="pista.uri | domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+              <!-- <audio controls>
+              <source [src]="pista.preview_url">
+                Tu navegador es viejo
+              </audio> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
+</div>
