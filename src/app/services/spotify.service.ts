@@ -10,11 +10,11 @@ export class SpotifyService {
 
   artistas: any[] = [];
 
-  //tracks: any[] = [];
+  // tracks: any[] = [];
 
-  urlSpotify: string = 'https://api.spotify.com/v1/';
+  urlSpotify = 'https://api.spotify.com/v1/';
 
-  token: string = 'BQDyT7Uvnr-RHElrUByMf4xEhdGWYYybPNkQmCQSo2v6HdzzuqR39L1wMXPPTanZQhs2itXgek-ti5Gg5kw';
+  token = 'BQAhmWt0KCpgC-xFZDjfRe16QbYtrAN3bfBB_rJs_ObWhKSj3FBWZzBOooWzwolRsiu26b5lIxzE9VFykg8';
 
   constructor(public http: HttpClient) {
     console.log('Servicio de spotify listo');
@@ -27,16 +27,16 @@ export class SpotifyService {
     return headers;
   }
 
-  getTopTracks(id:string){
+  getTopTracks(id: string) {
     let url = `${this.urlSpotify}artists/${id}/top-tracks?country=EC`;
 
     let headers = this.getHeaders();
     // Observador
     return this.http.get(url, { headers });
-      // .map((respuesta: any) => {
-      //   this.tracks = respuesta.tracks;
-      //   return this.tracks;
-      // });
+    // .map((respuesta: any) => {
+    //   this.tracks = respuesta.tracks;
+    //   return this.tracks;
+    // });
   }
 
   getArtista(id: string) {
@@ -45,10 +45,10 @@ export class SpotifyService {
     let headers = this.getHeaders();
     // Observador
     return this.http.get(url, { headers });
-      // .map((respuesta: any) => {
-      //   this.artistas = respuesta.artists.items;
-      //   return this.artistas;
-      // });
+    // .map((respuesta: any) => {
+    //   this.artistas = respuesta.artists.items;
+    //   return this.artistas;
+    // });
   }
 
   getArtistas(termino: string) {
